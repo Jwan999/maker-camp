@@ -136,88 +136,6 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /*countdown*/
-        .clock-day:before {
-            content: var(--timer-day);
-        }
-
-        .clock-hours:before {
-            content: var(--timer-hours);
-        }
-
-        .clock-minutes:before {
-            content: var(--timer-minutes);
-        }
-
-        .clock-seconds:before {
-            content: var(--timer-seconds);
-        }
-
-        .clock-container {
-            margin-top: 30px;
-            margin-bottom: 30px;
-            /*background-color: #080808;*/
-            /*border-radius: 5px;*/
-            padding: 60px 20px;
-            /*box-shadow: 1px 1px 5px rgba(255, 255, 255, .15), 0 15px 90px 30px rgba(0, 0, 0, .25);*/
-            display: flex;
-        }
-
-        .clock-col {
-            text-align: center;
-            margin-right: 40px;
-            margin-left: 40px;
-            min-width: 90px;
-            position: relative;
-        }
-
-        .clock-col:not(:last-child):before, .clock-col:not(:last-child):after {
-            content: "";
-            background-color: rgba(255, 255, 255, .3);
-            height: 5px;
-            width: 5px;
-            border-radius: 50%;
-            display: block;
-            position: absolute;
-            right: -42px;
-        }
-
-        .clock-col:not(:last-child):before {
-            top: 35%;
-        }
-
-        .clock-col:not(:last-child):after {
-            top: 50%;
-        }
-
-        .clock-timer:before {
-            color: #fff;
-            font-size: 4.2rem;
-            text-transform: uppercase;
-        }
-
-        .clock-label {
-            color: rgba(255, 255, 255, .35);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            margin-top: 10px;
-        }
-
-        @media (max-width: 825px) {
-            .clock-container {
-                flex-direction: column;
-                padding-top: 40px;
-                padding-bottom: 40px;
-            }
-
-            .clock-col + .clock-col {
-                margin-top: 20px;
-            }
-
-            .clock-col:before, .clock-col:after {
-                display: none !important;
-            }
-        }
 
 
     </style>
@@ -278,21 +196,11 @@
 </div>
 
 <!--Footer-->
-<footer class="bg-white">
+<footer>
     <div class="container mx-auto px-8">
         <div class="w-full flex flex-col md:flex-row py-6">
             <div class="flex-1 mb-6 text-black">
                 <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-                    <!--Icon from: http://www.potlabicons.com/ -->
-                    <svg class="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 512.005 512.005">
-                        <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502"
-                              transform="matrix(1,0,0,1,0,0)"/>
-                        <path
-                                class="plane-take-off"
-                                d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
-                        />
-                    </svg>
                     LANDING
                 </a>
             </div>
@@ -720,3 +628,101 @@
 
 </body>
 </html>
+
+
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-11/12">
+    <div class="my-1 px-1 w-full">
+
+        <!-- Article -->
+        <article class="overflow-hidden rounded hover:shadow-lg">
+
+            <a href="#">
+                <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random">
+            </a>
+
+            <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                <h1 class="text-lg">
+                    <a class="no-underline hover:underline text-black" href="#">
+                        Article Title
+                    </a>
+                </h1>
+                <p class="text-grey-darker text-sm">
+                    14/4/19
+                </p>
+            </header>
+
+            <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                    <span class="hidden">Like</span>
+                    <i class="fa fa-heart"></i>
+                </a>
+            </footer>
+
+        </article>
+        <!-- END Article -->
+
+    </div>
+    <div class="my-1 px-1 w-full ">
+
+        <!-- Article -->
+        <article class="overflow-hidden rounded hover:shadow-lg">
+
+            <a href="#">
+                <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random">
+            </a>
+
+            <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                <h1 class="text-lg">
+                    <a class="no-underline hover:underline text-black" href="#">
+                        Article Title
+                    </a>
+                </h1>
+                <p class="text-grey-darker text-sm">
+                    14/4/19
+                </p>
+            </header>
+
+            <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                    <span class="hidden">Like</span>
+                    <i class="fa fa-heart"></i>
+                </a>
+            </footer>
+
+        </article>
+        <!-- END Article -->
+
+    </div>
+    <div class="my-1 px-1 w-full ">
+
+        <!-- Article -->
+        <article class="overflow-hidden rounded hover:shadow-lg">
+
+            <a href="#">
+                <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random">
+            </a>
+
+            <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                <h1 class="text-lg">
+                    <a class="no-underline hover:underline text-black" href="#">
+                        Article Title
+                    </a>
+                </h1>
+                <p class="text-grey-darker text-sm">
+                    14/4/19
+                </p>
+            </header>
+
+            <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                    <span class="hidden">Like</span>
+                    <i class="fa fa-heart"></i>
+                </a>
+            </footer>
+
+        </article>
+        <!-- END Article -->
+
+    </div>
+</div>
