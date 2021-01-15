@@ -1,79 +1,133 @@
-/*Toggle dropdown list*/
-/*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
 
-var navMenuDiv = document.getElementById("nav-content");
-var navMenu = document.getElementById("nav-toggle");
+// carosal
+var cont = 0;
 
-document.onclick = check;
+function loopSlider() {
+    var xx = setInterval(function () {
+        switch (cont) {
+            case 0: {
+                $("#slider-1").fadeOut(400);
+                $("#slider-2").delay(400).fadeIn(400);
+                $("#sButton1").removeClass("bg-purple-800");
+                $("#sButton2").addClass("bg-purple-800");
+                cont = 1;
 
-function check(e) {
-    var target = (e && e.target) || (event && event.srcElement);
-
-    //Nav Menu
-    if (!checkParent(target, navMenuDiv)) {
-        // click NOT on the menu
-        if (checkParent(target, navMenu)) {
-            // click on the link
-            if (navMenuDiv.classList.contains("hidden")) {
-                navMenuDiv.classList.remove("hidden");
-            } else {
-                navMenuDiv.classList.add("hidden");
+                break;
             }
-        } else {
-            // click both outside link and outside menu, hide menu
-            navMenuDiv.classList.add("hidden");
+            case 1: {
+
+                $("#slider-2").fadeOut(400);
+                $("#slider-1").delay(400).fadeIn(400);
+                $("#sButton2").removeClass("bg-purple-800");
+                $("#sButton1").addClass("bg-purple-800");
+
+                cont = 0;
+
+                break;
+            }
+
+
         }
-    }
+    }, 8000);
+
 }
 
-function checkParent(t, elm) {
-    while (t.parentNode) {
-        if (t == elm) {
-            return true;
-        }
-        t = t.parentNode;
-    }
-    return false;
+function reinitLoop(time) {
+    clearInterval(xx);
+    setTimeout(loopSlider(), time);
 }
-var scrollpos = window.scrollY;
-var header = document.getElementById("header");
-var navcontent = document.getElementById("nav-content");
-var navaction = document.getElementById("navAction");
-var brandname = document.getElementById("brandname");
-var toToggle = document.querySelectorAll(".toggleColour");
 
-document.addEventListener("scroll", function () {
-    /*Apply classes for slide in bar*/
-    scrollpos = window.scrollY;
 
-    if (scrollpos > 10) {
-        header.classList.add("bg-white");
-        navaction.classList.remove("bg-white");
-        navaction.classList.add("gradient");
-        navaction.classList.remove("text-blue-800");
-        navaction.classList.add("text-white");
-        //Use to switch toggleColour colours
-        for (var i = 0; i < toToggle.length; i++) {
-            toToggle[i].classList.add("text-blue-800");
-            toToggle[i].classList.remove("text-white");
+function sliderButton1() {
+
+    $("#slider-2").fadeOut(400);
+    $("#slider-1").delay(400).fadeIn(400);
+    $("#sButton2").removeClass("bg-purple-800");
+    $("#sButton1").addClass("bg-purple-800");
+    reinitLoop(4000);
+    cont = 0
+
+}
+
+function sliderButton2() {
+    $("#slider-1").fadeOut(400);
+    $("#slider-2").delay(400).fadeIn(400);
+    $("#sButton1").removeClass("bg-purple-800");
+    $("#sButton2").addClass("bg-purple-800");
+    reinitLoop(4000);
+    cont = 1
+
+}
+
+$(window).ready(function () {
+    $("#slider-2").hide();
+    $("#sButton1").addClass("bg-purple-800");
+
+
+    loopSlider();
+
+
+});
+
+// countdown
+
+(function () {
+    const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+
+    let birthday = "Sep 30, 2021 00:00:00",
+        countDown = new Date(birthday).getTime(),
+        x = setInterval(function () {
+
+            let now = new Date().getTime(),
+                distance = countDown - now;
+
+            document.getElementById("days").innerText = Math.floor(distance / (day)),
+                document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+            //do something later when date is reached
+            if (distance < 0) {
+                let headline = document.getElementById("headline"),
+                    countdown = document.getElementById("countdown"),
+                    content = document.getElementById("content");
+
+                headline.innerText = "It's my birthday!";
+                countdown.style.display = "none";
+                content.style.display = "block";
+
+                clearInterval(x);
+            }
+            //seconds
+        }, 0)
+}());
+
+// owl carosel
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
         }
-        header.classList.add("shadow");
-        navcontent.classList.remove("bg-blue-100");
-        navcontent.classList.add("bg-white");
-    } else {
-        header.classList.remove("bg-white");
-        navaction.classList.remove("gradient");
-        navaction.classList.add("bg-white");
-        navaction.classList.remove("text-white");
-        navaction.classList.add("text-blue-800");
-        //Use to switch toggleColour colours
-        for (var i = 0; i < toToggle.length; i++) {
-            toToggle[i].classList.add("text-white");
-            toToggle[i].classList.remove("text-blue-800");
-        }
-
-        header.classList.remove("shadow");
-        navcontent.classList.remove("bg-white");
-        navcontent.classList.add("bg-gray-100");
     }
+})
+
+// lottie
+lottie.loadAnimation({
+    container: document.getElementById("gear"), // the dom element that will contain the animation
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'lf30_editor_hfd5akx9.json' // the path to the animation json
 });
